@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>Simple Leaflet Map with a marker</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <style>
@@ -23,9 +24,13 @@
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-
+        
         // Add a marker to the map
         var marker = L.marker([41.22415100, 1.72556780]).addTo(map);
+        
+        // Add a popup to the marker
+        marker.bindPopup("<b>Vilanova i la Geltrú</b><br>A city in the province of Barcelona, Catalonia, Spain.");
+        
     </script>
 </body>
 </html>

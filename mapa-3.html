@@ -29,9 +29,14 @@
         fetch('./coordinates.json')
             .then(response => response.json())
             .then(data => {
-                data.forEach(element => {
+                data.forEach(element => {                    
+                    // Add a small html to the popup with a picture and a link to Google Maps
+                    var popup = "<b>" + element.name + "</b><br>" +
+                        "<a href='https://www.google.com/maps/search/?api=1&query=" + element.lat + "," + element.lng + "' target='_blank'>Google Maps</a>";
+                    
+                    // Add a marker to the map
                     L.marker([element.lat, element.lng]).addTo(map)
-                        .bindPopup(element.name);
+                        .bindPopup(popup);
                 });
             });
     </script>
